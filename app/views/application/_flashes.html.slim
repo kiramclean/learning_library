@@ -1,0 +1,4 @@
+- if flash.any?
+  .flashes
+    - user_facing_flashes.each do |type, message|
+      = content_tag :div, message, class: "flash-#{type}"

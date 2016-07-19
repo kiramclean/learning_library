@@ -1,0 +1,56 @@
+// Display
+=above($size)
+  @media screen and (min-width: $size)
+    @content
+
+=on($size)
+  @media screen and (max-width: $size)
+    @content
+
+=flex
+  display: flex
+
+=flex_column
+  display: flex
+  flex-direction: column
+
+=flex_column_then_row
+  +flex_column
+  +above($small-screen)
+    flex-direction: row
+
+=flex-row-then-column
+  display: flex
+  flex-direction: row
+  +above($small-screen)
+    flex-direction: column
+
+=flex_column_centered
+  +flex_column
+  align-items: center
+  justify-content: center
+
+// Styles
+=shadow($color: $lighter-gray)
+  box-shadow: 1px 1px 1px $color
+
+=border($color: $lighter-gray)
+  border: 1px solid $color
+
+=visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+  &:active,
+  &:focus
+    clip: auto
+    height: auto
+    margin: 0
+    overflow: visible
+    position: static

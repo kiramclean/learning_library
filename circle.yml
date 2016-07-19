@@ -1,0 +1,6 @@
+database:
+  override:
+    - bin/setup
+test:
+  post:
+    - bash <(curl -s https://codecov.io/bash)

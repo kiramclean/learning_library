@@ -1,0 +1,48 @@
+$base-spacing: 1.5rem;
+$base-font-size: 1.1rem;
+$base-border-radius: 1px;
+$base-line-height: 1.5rem;
+
+$small-text: 0.85rem;
+
+$large-space: 1.5rem;
+$med-space: 1rem;
+$little-space: 0.5rem;
+
+//COLORS
+$gray: #333333;
+$lightest-gray: lighten($gray, 73%);
+$lighter-gray: lighten($gray, 60%);
+$light-gray: lighten($gray, 50%);
+$background-color: #fdfdfd;
+
+$text-color: $gray;
+
+$main-color: #00c1b4;
+$action-color: #93d031;
+$error-color: #ff6912;
+$buttons: $main-color;
+
+// FLASHES
+$flashes: (
+  'alert': #ffe8c5,
+  'error': #fbe3e4,
+  'notice': #84f0e3,
+  'success': #e6efc2,
+);
+
+// FONTS
+$text: Helvetica Neue, Helvetica, sans-serif;
+$headers: Helvetica Neue, Helvetica, sans-serif;
+$serif: cursive;
+$monospace: Menlo, Monaco, Lucida Console, Liberation Mono, Courier New, monospace;
+
+// MEDIA QUERIES
+$small-screen: 42rem;
+$medium-screen: 68rem;
+
+// TRANSITIONS
+$base-duration: 75ms;
+$long-duration: 3 * $base-duration;
+$base-timing: ease;
+

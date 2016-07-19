@@ -1,0 +1,12 @@
+en:
+  app_name: Learning library
+
+  time:
+    formats:
+      date: "%B %-e, %Y"
+      full: "%A, %B %-e at %-l:%M %P"
+      long: "%A, %B %-e"
+      time: "%-l:%M %P"
+      short: "%B %d"
+    minutes: minutes
+
