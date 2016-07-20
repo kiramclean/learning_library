@@ -2,14 +2,11 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
+    @resource = Resource.new
     @resources = Resource.all
   end
 
   def show
-  end
-
-  def new
-    @resource = Resource.new
   end
 
   def create

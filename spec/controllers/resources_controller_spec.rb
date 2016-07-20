@@ -14,12 +14,6 @@ RSpec.describe ResourcesController, type: :controller do
     it_behaves_like 'action that is allowed for guests'
   end
 
-  describe "GET #new" do
-    let(:resource) { build :resource }
-    subject { get :new }
-    it_behaves_like 'action that is allowed for guests'
-  end
-
   describe "POST #create" do
     subject { post :create, params: { resource: resource_params } }
 

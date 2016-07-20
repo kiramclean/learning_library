@@ -1,16 +1,21 @@
 @each $flash-type, $color in $flashes
+  .flashes
+    border-radius: $base-border-radius
+    width: 100%
+    padding: $med-space
+
   .flash-#{$flash-type}
     background-color: $color
-    color: darken($color, 8%)
+    color: darken($color, 40%)
+    padding: $med-space
     text-align: center
-    width: 100%
     z-index: 1
 
     a
-      color: darken($color, 12%)
+      color: darken($color, 60%)
       text-decoration: underline
 
       &:focus,
       &:hover
-        color: darken($color, 18%)
+        color: darken($color, 80%)
 

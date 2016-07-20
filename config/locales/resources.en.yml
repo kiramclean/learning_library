@@ -1,0 +1,6 @@
+en:
+  resources:
+    index:
+      add: Add a new resource to our library
+    form:
+      create: Create resource
