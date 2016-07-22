@@ -1,6 +1,7 @@
 $base-spacing: 1.5rem;
 $base-font-size: 1.1rem;
 $base-border-radius: 1px;
+$round-border-radius: 25px;
 $base-line-height: 1.5rem;
 
 $small-text: 0.85rem;
@@ -32,17 +33,18 @@ $flashes: (
 );
 
 // FONTS
-$text: Helvetica Neue, Helvetica, sans-serif;
-$headers: Helvetica Neue, Helvetica, sans-serif;
+$text: Roboto, Helvetica Neue, Helvetica, sans-serif;
+$headers: Roboto, Helvetica Neue, Helvetica, sans-serif;
 $serif: cursive;
 $monospace: Menlo, Monaco, Lucida Console, Liberation Mono, Courier New, monospace;
+$letter-spacing: 1px;
 
 // MEDIA QUERIES
 $small-screen: 42rem;
 $medium-screen: 68rem;
 
 // TRANSITIONS
-$base-duration: 75ms;
+$base-duration: 100ms;
 $long-duration: 3 * $base-duration;
-$base-timing: ease;
+$base-timing: ease-in-out;
 

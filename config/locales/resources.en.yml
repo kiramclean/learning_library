@@ -4,3 +4,7 @@ en:
       add: Add a new resource to our library
     form:
       create: Create resource
+    create:
+      success:
+        guest: Thanks for posting! Sign up to keep track of the resources you post and maintain lists of favourites.
+        user: Thanks for posting!

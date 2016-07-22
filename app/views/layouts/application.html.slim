@@ -5,12 +5,15 @@ html lang='en'
     meta name='ROBOTS' content='NOODP'
     meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'
     title = full_title(yield(:title))
-
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "//fonts.googleapis.com/css?family=Roboto"
     = csrf_meta_tags
 
+    script src="https://use.fontawesome.com/2e861e25d0.js"
+
   body data-controller=controller_name data-action=action_name
+    = render 'header'
     = render 'flashes'
 
     = yield

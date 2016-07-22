@@ -1,0 +1,22 @@
+header
+  padding: $med-space
+  width: 100%
+  +flex_align_right
+
+  .logo::before
+    +cap
+    font-size: 3rem
+
+  nav
+    +flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+
+  ul
+    li
+      +spaced_inline_list
+
+      &:last-child
+        +button
+

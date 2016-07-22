@@ -10,3 +10,8 @@ en:
       short: "%B %d"
     minutes: minutes
 
+  application:
+    header:
+      sign_in: Sign in
+      sign_out: Sign out
+

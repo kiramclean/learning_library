@@ -13,7 +13,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
 
     if @resource.save
-      redirect_to resources_path, notice: 'Resource was successfully created.'
+      redirect_to resources_path, notice: successful_create
     else
       flash[:alert] = 'Resource could not be saved. Please try again.'
       render :new
@@ -33,5 +33,10 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:link)
+  end
+
+  def successful_create
+    return t('.success.guest') if current_user.nil?
+    t('.success.user')
   end
 end
