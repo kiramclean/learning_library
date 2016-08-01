@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'resources#index'
   resources :resources
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
