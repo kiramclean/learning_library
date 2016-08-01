@@ -1,30 +1,31 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe ResourcesController, type: :controller do
-  describe "GET #index" do
+  describe 'GET #index' do
     subject { get :index }
 
     it_behaves_like 'action that is allowed for guests'
   end
 
-  describe "GET #show" do
+  describe 'GET #show' do
     let(:resource) { create :resource }
     subject { get :show, params: { id: resource.id } }
 
     it_behaves_like 'action that is allowed for guests'
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     subject { post :create, params: { resource: resource_params } }
 
-    context "with valid params" do
+    context 'with valid params' do
       let(:resource_params) { attributes_for :resource }
 
-      it "creates a new Resource" do
+      it 'creates a new Resource' do
         expect { subject }.to change(Resource, :count).by 1
       end
 
-      it "redirects to resource index" do
+      it 'redirects to resource index' do
         subject
         expect(response).to redirect_to resources_path
       end
@@ -35,10 +36,10 @@ RSpec.describe ResourcesController, type: :controller do
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       let(:resource_params) { { link: nil } }
 
-      it "does not create a new Resource" do
+      it 'does not create a new Resource' do
         expect { subject }.not_to change(Resource, :count)
       end
 
@@ -49,16 +50,16 @@ RSpec.describe ResourcesController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     let!(:resource) { create :resource }
 
     subject { delete :destroy, params: { id: resource.id } }
 
-    it "destroys the requested resource" do
+    it 'destroys the requested resource' do
       expect { subject }.to change(Resource, :count).by(-1)
     end
 
-    it "redirects to the resources list" do
+    it 'redirects to the resources list' do
       subject
       expect(response).to redirect_to(resources_url)
     end

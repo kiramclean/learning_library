@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.feature 'Voting on a resource' do
@@ -7,8 +8,6 @@ RSpec.feature 'Voting on a resource' do
 
     visit resources_path(as: user)
   end
-
-
 
   # I'm logged in
   # I see a list of resources
@@ -23,4 +22,3 @@ RSpec.feature 'Voting on a resource' do
   # I click the down arrow
   # Same mesasge
 end
-

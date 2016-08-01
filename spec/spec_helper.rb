@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 if ENV.fetch('COVERAGE', false)
   require 'simplecov'
   require 'codecov'
@@ -11,7 +12,7 @@ if ENV.fetch('COVERAGE', false)
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
-require "webmock/rspec"
+require 'webmock/rspec'
 require 'clearance/rspec'
 
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
@@ -25,7 +26,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.example_status_persistence_file_path = "tmp/rspec_examples.txt"
+  config.example_status_persistence_file_path = 'tmp/rspec_examples.txt'
   config.order = :random
 end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.shared_examples 'successful request' do
   it 'returns success status code' do
     subject
@@ -23,4 +24,3 @@ RSpec.shared_examples 'action that is allowed for guests' do
     end
   end
 end
-
