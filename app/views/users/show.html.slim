@@ -1,3 +1,7 @@
 h1 = t('.profile')
 
 = @user.email
+
+ul
+  - @user.resources.each do |resource|
+    li = resource.link

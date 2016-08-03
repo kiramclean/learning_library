@@ -9,7 +9,7 @@ form
     margin: $med-space 0
 
     label
-      padding: 0 $base-spacing/2
+      padding: 0 $med-space
       background-color: $lighter-gray
 
     input, textarea
@@ -26,22 +26,21 @@ form
     .error
       border-bottom: 1px solid $error-color
 
-  input[type=checkbox]
-    margin-right: $base-spacing/2
-
   input[type=submit]
     display: block
+    margin: $large-space 0
 
 .links a
+  display: block
   color: $light-gray
   &:first-child
     font-weight: bold
 
 #error_explanation
   color: $action-color
-  padding: $base-spacing 0
+  padding: $med-space 0
   h2
     font-size: $base-font-size
   ul
-    margin-left: $base-spacing
+    margin-left: $med-space
 

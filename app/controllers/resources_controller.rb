@@ -11,7 +11,7 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(resource_params)
+    @resource = new_resource
 
     if @resource.save
       redirect_to resources_path, notice: successful_create
@@ -32,12 +32,20 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
   end
 
+  def new_resource
+    if current_user.present?
+      current_user.resources.new(resource_params)
+    else
+      Resource.new(resource_params)
+    end
+  end
+
   def resource_params
     params.require(:resource).permit(:link)
   end
 
   def successful_create
-    return t('.success.guest') if current_user.nil?
-    t('.success.user')
+    return t('.success.user') if current_user.present?
+    t('.success.guest')
   end
 end

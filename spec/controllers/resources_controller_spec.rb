@@ -32,7 +32,25 @@ RSpec.describe ResourcesController, type: :controller do
 
       it 'notifies success in a flash message' do
         subject
-        expect(controller).to set_flash['notice'].to 'Resource was successfully created.'
+        expect(controller).to set_flash['notice'].to t('resources.create.success.guest')
+      end
+
+      it 'does not assign the new resource to any user' do
+        expect(Resource.count).to eq 0
+        subject
+        expect(Resource.last.user_id).to eq nil
+      end
+
+      context 'a user is logged in' do
+        let(:user) { create :user }
+
+        before { allow(controller).to receive(:current_user).and_return user }
+
+        it 'assigns the new resource to the current user' do
+          expect(user.resources.count).to eq 0
+          subject
+          expect(user.resources.count).to eq 1
+        end
       end
     end
 
