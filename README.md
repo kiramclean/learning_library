@@ -1,3 +1,8 @@
+[![CircleCI](https://circleci.com/gh/kiramclean/learning_library/tree/master.svg?style=shield)](https://circleci.com/gh/kiramclean/learning_library/tree/master)
+[![codecov](https://codecov.io/gh/kiramclean/learning_library/branch/master/graph/badge.svg)](https://codecov.io/gh/kiramclean/learning_library)
+[![Code Climate](https://codeclimate.com/github/kiramclean/learning_library/badges/gpa.svg)](https://codeclimate.com/github/kiramclean/learning_library)
+[![Dependency Status](https://gemnasium.com/badges/github.com/kiramclean/learning_library.svg)](https://gemnasium.com/github.com/kiramclean/learning_library)
+
 # Learning library
 
 ## Getting Started
