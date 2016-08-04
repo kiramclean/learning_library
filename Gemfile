@@ -28,6 +28,9 @@ gem 'redis'
 # Users
 gem 'clearance'
 
+# Tagging
+gem 'acts-as-taggable-on'
+
 group :development do
   gem 'listen'
   gem 'spring'
