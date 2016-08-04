@@ -1,10 +1,17 @@
 en:
   resources:
     index:
-      add: Add a new resource to our library
     form:
+      add_tags: Help others find this resource by adding some tags
       create: Create resource
+      cost_list: Cost
+      level_list: Level
+      link: Link
+      skill_list: Skills covered
     create:
       success:
         guest: Thanks for posting! Sign up to keep track of the resources you post and maintain lists of favourites.
         user: Thanks for posting!
+    new:
+      title: Add a new resource to our library
+

@@ -15,6 +15,12 @@ RSpec.describe ResourcesController, type: :controller do
     it_behaves_like 'action that is allowed for guests'
   end
 
+  describe 'GET #new' do
+    subject { get :new }
+
+    it_behaves_like 'action that is allowed for guests'
+  end
+
   describe 'POST #create' do
     subject { post :create, params: { resource: resource_params } }
 
@@ -59,11 +65,6 @@ RSpec.describe ResourcesController, type: :controller do
 
       it 'does not create a new Resource' do
         expect { subject }.not_to change(Resource, :count)
-      end
-
-      it 'notifies failure in a flash message' do
-        subject
-        expect(controller).to set_flash[:alert].to 'Resource could not be saved. Please try again.'
       end
     end
   end

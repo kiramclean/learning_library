@@ -5,7 +5,11 @@ RSpec.feature 'user adds and manages their resources' do
   scenario 'guest adds a resource' do
     visit resources_path
 
-    add_resource
+    click_link t('application.header.new_resource')
+
+    expect(page).to have_content t('resources.new.title')
+
+    add_resource('http://hithere.com')
 
     expect(page).to have_content 'http://hithere.com'
     expect(page).to have_content t('resources.create.success.guest')
@@ -14,9 +18,9 @@ RSpec.feature 'user adds and manages their resources' do
 
   scenario 'user adds a resource and visits their profile' do
     user = create :user
-    visit resources_path(as: user)
+    visit new_resource_path(as: user)
 
-    add_resource
+    add_resource('http://hithere.com')
 
     expect(page).to have_content t('resources.create.success.user')
 
@@ -30,11 +34,28 @@ RSpec.feature 'user adds and manages their resources' do
     expect(page).not_to have_content other_resource.link
   end
 
+  scenario 'user tries to add an invalid url' do
+    visit new_resource_path
+
+    add_resource('invalid.url')
+
+    expect(page).to have_content t('errors.messages.url')
+  end
+
+  scenario 'user tries to add an invalid url' do
+    create :resource, link: 'http://duplicate.com'
+
+    visit new_resource_path
+
+    add_resource('http://duplicate.com')
+
+    expect(page).to have_content t('activerecord.errors.models.resource.attributes.link.taken')
+  end
+
   private
 
-  def add_resource
-    find('summary', text: 'Add a new resource to our library').click
-    fill_form :resource, link: 'http://hithere.com'
+  def add_resource(link)
+    fill_form :resource, 'Link': link
     click_button 'Create resource'
   end
 end

@@ -7,7 +7,10 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 
-SimpleCov.start { add_filter '/spec/' }
+SimpleCov.start do
+  add_filter '/spec/'
+  add_filter '/config/'
+end
 SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 require 'spec_helper'
