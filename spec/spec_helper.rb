@@ -12,8 +12,9 @@ if ENV.fetch('COVERAGE', false)
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
+require 'spec_helper'
 require 'webmock/rspec'
-require 'clearance/rspec'
+require 'capybara/rspec'
 
 # http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|

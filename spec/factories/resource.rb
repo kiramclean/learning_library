@@ -6,6 +6,5 @@ FactoryGirl.define do
 
   factory :resource do
     link
-    association :user
   end
 end

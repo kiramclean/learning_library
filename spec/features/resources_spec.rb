@@ -24,7 +24,7 @@ RSpec.feature 'user adds and manages their resources' do
 
     resource       = user.resources.first
     other_user     = create :user
-    other_resource = create :resource, user: other_user
+    other_resource = create :resource, user_id: other_user.id
 
     expect(page).to     have_content resource.link
     expect(page).not_to have_content other_resource.link
