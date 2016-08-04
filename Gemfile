@@ -31,6 +31,9 @@ gem 'clearance'
 # Tagging
 gem 'acts-as-taggable-on'
 
+# Validations
+gem 'validate_url'
+
 group :development do
   gem 'listen'
   gem 'spring'

@@ -3,6 +3,7 @@ header
     a href=root_path class='logo'
 
     ul
+      li = link_to t('.new_resource'), new_resource_path
       - if signed_in?
         - @user ||= current_user
         li = link_to @user.email, user_path(@user)

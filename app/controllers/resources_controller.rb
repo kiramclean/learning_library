@@ -3,11 +3,15 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resource = Resource.new
     @resources = Resource.all
   end
 
   def show
+  end
+
+  def new
+    @resource = Resource.new
+    render :new
   end
 
   def create
@@ -16,7 +20,6 @@ class ResourcesController < ApplicationController
     if @resource.save
       redirect_to resources_path, notice: successful_create
     else
-      flash[:alert] = 'Resource could not be saved. Please try again.'
       render :new
     end
   end
@@ -41,7 +44,7 @@ class ResourcesController < ApplicationController
   end
 
   def resource_params
-    params.require(:resource).permit(:link)
+    params.require(:resource).permit(:link, :cost_list, :level_list, :skill_list)
   end
 
   def successful_create

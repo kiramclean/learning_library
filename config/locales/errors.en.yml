@@ -1,0 +1,15 @@
+---
+en:
+  errors:
+    messages:
+      url: Looks like that's not a valid url. Please enter a full url.
+  activerecord:
+    attributes:
+      resource:
+        link: ''
+    errors:
+      models:
+        resource:
+          attributes:
+            link:
+              taken: Seems we already have that resource. It's a duplicate.
