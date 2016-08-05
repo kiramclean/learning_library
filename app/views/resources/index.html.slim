@@ -1,18 +1,3 @@
 h1 Listing resources
 
-table
-  thead
-    tr
-      th Link
-      th
-      th
-      th
-
-  tbody
-    - @resources.each do |resource|
-      tr
-        td = resource.link
-        td = link_to 'Show', resource
-        td = link_to 'Edit', edit_resource_path(resource)
-        td = link_to 'Destroy', resource, data: { confirm: 'Are you sure?' }, method: :delete
-
+= render @resources

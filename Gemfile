@@ -31,6 +31,9 @@ gem 'clearance'
 # Tagging
 gem 'acts-as-taggable-on'
 
+# Links
+gem 'link_thumbnailer'
+
 # Validations
 gem 'validate_url'
 

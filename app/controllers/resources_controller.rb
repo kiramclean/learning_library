@@ -15,9 +15,9 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = new_resource
+    result = ResourceCreationService.new.call(user: current_user, input: resource_params)
 
-    if @resource.save
+    if result.success?
       redirect_to resources_path, notice: successful_create
     else
       render :new

@@ -1,5 +1,5 @@
-$base-font-size: 1.1rem;
-$base-border-radius: 1px;
+$base-font-size: 1rem;
+$base-border-radius: 2px;
 $round-border-radius: 25px;
 $base-line-height: 1.5rem;
 
@@ -37,6 +37,7 @@ $headers: Roboto, Helvetica Neue, Helvetica, sans-serif;
 $serif: cursive;
 $monospace: Menlo, Monaco, Lucida Console, Liberation Mono, Courier New, monospace;
 $letter-spacing: 1px;
+$bold-font-weight: 700;
 
 // MEDIA QUERIES
 $small-screen: 42rem;

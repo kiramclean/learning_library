@@ -4,6 +4,8 @@ require 'rails_helper'
 RSpec.describe Resource, type: :model do
   subject { build :resource }
 
+  it { is_expected.to respond_to :link, :cost_list, :level_list, :skill_list, :preview }
+
   it { is_expected.to validate_presence_of   :link }
   it { is_expected.to validate_uniqueness_of :link }
 
