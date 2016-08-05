@@ -291,6 +291,7 @@ GEM
     validate_url (1.0.2)
       activemodel (>= 3.0.0)
       addressable
+    vcr (2.9.3)
     video_info (2.6.1)
       iso8601 (~> 0.9)
       net_http_timeout_errors (~> 0.3.0)
@@ -354,6 +355,7 @@ DEPENDENCIES
   turbolinks
   uglifier
   validate_url
+  vcr
   web-console
   webmock
 
