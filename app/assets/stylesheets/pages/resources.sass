@@ -1,3 +1,28 @@
 [data-controller=resources]
   form
     +form_with_field_errors
+
+  .resource
+    +flex_column_then_row
+    +card
+    justify-content: space-between
+
+    .info
+      +above($small-screen)
+        max-width: 75%
+        padding-right: $med-space
+
+    img
+      border-radius: $smooth-border-radius
+      max-height: 15vh
+      +above($small-screen)
+        max-width: 25%
+        object-fit: cover
+      +on($small-screen)
+        display: none
+
+    a
+      +ellipsize
+      display: block
+      font-size: $small-text
+

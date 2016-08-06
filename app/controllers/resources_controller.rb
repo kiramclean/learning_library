@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all
+    @resources = Resource.all.order(created_at: :desc)
   end
 
   def show
@@ -18,6 +18,7 @@ class ResourcesController < ApplicationController
     @resource = new_resource
 
     if @resource.save
+      fetch_preview
       redirect_to resources_path, notice: successful_create
     else
       render :new
@@ -45,6 +46,10 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:link, :cost_list, :level_list, :skill_list)
+  end
+
+  def fetch_preview
+    PreviewGenerationJob.perform_later(resource: @resource)
   end
 
   def successful_create

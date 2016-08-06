@@ -31,6 +31,9 @@ gem 'clearance'
 # Tagging
 gem 'acts-as-taggable-on'
 
+# Links
+gem 'link_thumbnailer'
+
 # Validations
 gem 'validate_url'
 
@@ -65,6 +68,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'webmock'
+  gem 'vcr'
 end
 
 group :staging, :production do

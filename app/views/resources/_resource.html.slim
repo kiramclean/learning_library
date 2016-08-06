@@ -1,0 +1,11 @@
+.resource
+  - if resource.preview.present?
+    .info
+      h2 = resource.preview['title']
+      a href="#{resource.preview['url']}" target='_blank' #{resource.preview['url']}
+      h3 = resource.preview['description']
+
+    img src="#{image_source_for(resource)}"
+
+  - else
+    = resource.link
