@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all
+    @resources = Resource.all.order(created_at: :desc)
   end
 
   def show

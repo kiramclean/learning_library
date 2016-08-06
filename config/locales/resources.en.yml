@@ -1,6 +1,7 @@
 en:
   resources:
     index:
+      learn: What will you learn today?
     form:
       add_tags: Help others find this resource by adding some tags
       create: Create resource
