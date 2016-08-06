@@ -48,14 +48,6 @@ RSpec.describe ResourcesController, type: :controller do
         expect(controller).to set_flash['notice'].to t('resources.create.success.guest')
       end
     end
-
-    context 'with invalid params' do
-      let(:resource_params) { { link: nil } }
-
-      it 'does not create a new Resource' do
-        expect { subject }.not_to change(Resource, :count)
-      end
-    end
   end
 
   describe 'DELETE #destroy' do

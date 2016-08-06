@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature 'user adds and manages their resources' do
+RSpec.feature 'user adds and manages their resources', :vcr do
   scenario 'guest adds a resource' do
     visit resources_path
 
@@ -9,9 +9,9 @@ RSpec.feature 'user adds and manages their resources' do
 
     expect(page).to have_content t('resources.new.title')
 
-    add_resource('http://hithere.com')
+    add_resource('http://stackoverflow.com')
 
-    expect(page).to have_content 'http://hithere.com'
+    expect(page).to have_content 'http://stackoverflow.com'
     expect(page).to have_content t('resources.create.success.guest')
     expect(Resource.count).to eq 1
   end

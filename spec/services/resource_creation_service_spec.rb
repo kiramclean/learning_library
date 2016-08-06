@@ -26,6 +26,11 @@ RSpec.describe ResourceCreationService do
         subject
         expect(Resource.last.user_id).to eq nil
       end
+
+      it 'adds the thumbnail to the resource' do
+        subject
+        expect(Resource.last.preview).to be_present
+      end
     end
 
     context 'current user is logged in' do
@@ -42,18 +47,11 @@ RSpec.describe ResourceCreationService do
         subject
         expect(Resource.last.user_id).to eq user.id
       end
-    end
 
-    describe 'end to end test' do
-      subject { described_class.new.call(user: nil, input: strong_params) }
-
-      # it { is_expected.to be_a ServiceResponse }
-      # it { is_expected.to be_success           }
-
-      # it 'adds a preview to the resource' do
-      #   subject
-      #   expect(Resource.last.preview).to be_present
-      # end
+      it 'adds the thumbnail to the resource' do
+        subject
+        expect(Resource.last.preview).to be_present
+      end
     end
   end
 end
