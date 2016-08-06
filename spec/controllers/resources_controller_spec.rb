@@ -21,21 +21,14 @@ RSpec.describe ResourcesController, type: :controller do
     it_behaves_like 'action that is allowed for guests'
   end
 
-  describe 'POST #create' do
+ describe 'POST #create' do
     subject { post :create, params: { resource: resource_params } }
 
-    context 'with successful resource creation' do
+    context 'with valid params' do
       let(:resource_params) { attributes_for :resource }
-      let(:strong_params) { ActionController::Parameters.new(resource_params).permit! }
-      let(:successful_service_response) { double 'response', success?: true }
 
-      before do
-        allow_any_instance_of(ResourceCreationService).to receive(:call).and_return successful_service_response
-      end
-
-      it 'calls the resource creation service' do
-        expect_any_instance_of(ResourceCreationService).to receive(:call).with(user: nil, input: strong_params)
-        subject
+      it 'creates a new Resource' do
+        expect { subject }.to change(Resource, :count).by 1
       end
 
       it 'redirects to resource index' do
@@ -46,6 +39,32 @@ RSpec.describe ResourcesController, type: :controller do
       it 'notifies success in a flash message' do
         subject
         expect(controller).to set_flash['notice'].to t('resources.create.success.guest')
+      end
+
+      it 'does not assign the new resource to any user' do
+        expect(Resource.count).to eq 0
+        subject
+        expect(Resource.last.user_id).to eq nil
+      end
+
+      context 'a user is logged in' do
+        let(:user) { create :user }
+
+        before { allow(controller).to receive(:current_user).and_return user }
+
+        it 'assigns the new resource to the current user' do
+          expect(user.resources.count).to eq 0
+          subject
+          expect(user.resources.count).to eq 1
+        end
+      end
+    end
+
+    context 'with invalid params' do
+      let(:resource_params) { { link: nil } }
+
+      it 'does not create a new Resource' do
+        expect { subject }.not_to change(Resource, :count)
       end
     end
   end

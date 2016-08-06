@@ -5,10 +5,13 @@ class PreviewGenerationService
   def call(link:)
     @link = link
 
-    preview = fetch_thumbnail
-    json    = make_valid(preview.to_json)
+    begin
+      preview = fetch_thumbnail
+      json    = make_valid(preview.to_json)
 
-    ServiceResponse.new(json)
+      ServiceResponse.new(json)
+    rescue LinkThumbnailer::Exceptions =>
+      ServiceResponse.new(nil, true,
   end
 
   private

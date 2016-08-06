@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature 'user adds and manages their resources', :vcr do
+RSpec.feature 'user adds and manages their resources' do
   scenario 'guest adds a resource' do
     visit resources_path
 

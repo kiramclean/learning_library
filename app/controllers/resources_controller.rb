@@ -15,9 +15,10 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    result = ResourceCreationService.new.call(user: current_user, input: resource_params)
+    @resource = new_resource
 
-    if result.success?
+    if @resource.save
+      fetch_preview
       redirect_to resources_path, notice: successful_create
     else
       render :new
@@ -45,6 +46,11 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:link, :cost_list, :level_list, :skill_list)
+  end
+
+  def fetch_preview
+    previewer = PreviewGenerationJob.call(link: @resource.link)
+    @resource.update_attributes preview: previewer.object # do this in a background job
   end
 
   def successful_create
