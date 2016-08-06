@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.feature 'user adds and manages their resources' do
-  scenario 'guest adds a resource' do
+  scenario 'guest adds a resource', :vcr do
     visit resources_path
 
     click_link t('application.header.new_resource')
@@ -11,18 +11,22 @@ RSpec.feature 'user adds and manages their resources' do
 
     add_resource('http://stackoverflow.com')
 
+    expect(page).to have_content 'Stack Overflow'
     expect(page).to have_content 'http://stackoverflow.com'
+    expect(page).to have_content 'Q&A for professional and enthusiast programmers'
     expect(page).to have_content t('resources.create.success.guest')
     expect(Resource.count).to eq 1
   end
 
-  scenario 'user adds a resource and visits their profile' do
+  scenario 'user adds a resource and visits their profile', :vcr do
     user = create :user
     visit new_resource_path(as: user)
 
-    add_resource('http://hithere.com')
+    add_resource('http://udacity.com')
 
     expect(page).to have_content t('resources.create.success.user')
+    expect(page).to have_content 'Udacity - Free Online Classes & Nanodegrees'
+    expect(page).to have_content 'Find free online courses, make a career change, or get a new job by completing a Nanodegree program.'
 
     visit user_path(user, as: user)
 
@@ -42,7 +46,7 @@ RSpec.feature 'user adds and manages their resources' do
     expect(page).to have_content t('errors.messages.url')
   end
 
-  scenario 'user tries to add an invalid url' do
+  scenario 'user tries to add a duplicate url' do
     create :resource, link: 'http://duplicate.com'
 
     visit new_resource_path
@@ -50,6 +54,14 @@ RSpec.feature 'user adds and manages their resources' do
     add_resource('http://duplicate.com')
 
     expect(page).to have_content t('activerecord.errors.models.resource.attributes.link.taken')
+  end
+
+  scenario "user adds a link we can't fetch any data for", :vcr do
+    visit new_resource_path
+
+    add_resource('http://nodatahere.com')
+
+    expect(page).to have_content t('resources.preview.fetch_error')
   end
 
   private

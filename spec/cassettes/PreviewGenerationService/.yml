@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Cache-Control:
-      - public, max-age=26
+      - public, max-age=14
       Content-Type:
       - text/html; charset=utf-8
       Expires:
@@ -33,31 +33,31 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Request-Guid:
-      - 30c4d0a9-534e-49a3-9fad-417c75950f71
+      - be78e154-095c-4a42-be57-21f4b719e505
       Content-Length:
       - '245425'
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 06 Aug 2016 15:21:46 GMT
+      - Sat, 06 Aug 2016 15:21:58 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-jfk1036-JFK
+      - cache-jfk1044-JFK
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1470496906.472620,VS0,VE3
+      - S1470496918.180629,VS0,VE3
       Vary:
       - "*"
       X-Dns-Prefetch-Control:
       - 'off'
       Set-Cookie:
-      - prov=cdfdc767-bad1-6881-540c-a6eb8d418963; domain=.stackoverflow.com; expires=Fri,
+      - prov=ed081cc4-56e0-a45f-ce7e-7ece9b5d9036; domain=.stackoverflow.com; expires=Fri,
         01-Jan-2055 00:00:00 GMT; path=/; HttpOnly
     body:
       encoding: ASCII-8BIT
@@ -5517,7 +5517,7 @@ http_interactions:
         ICAgICAgICAgfSkoTm9kZS5wcm90b3R5cGUuYXBwZW5kQ2hpbGQpOw0KICAg
         ICAgICAgICAgPC9zY3JpcHQ+DQogICAgPC9ib2R5Pg0KPC9odG1sPg==
     http_version: 
-  recorded_at: Sat, 06 Aug 2016 15:21:45 GMT
+  recorded_at: Sat, 06 Aug 2016 15:21:57 GMT
 - request:
     method: get
     uri: http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?a&v=73d79a89bded
@@ -5547,26 +5547,26 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Sat, 06 Aug 2016 15:21:47 GMT
+      - Sat, 06 Aug 2016 15:21:58 GMT
       Via:
       - 1.1 varnish
       Age:
-      - '188410'
+      - '188421'
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-jfk1021-JFK
+      - cache-jfk1029-JFK
       X-Cache:
       - HIT
       X-Cache-Hits:
       - '1'
       X-Timer:
-      - S1470496907.354812,VS0,VE0
+      - S1470496918.412448,VS0,VE0
       Vary:
       - Accept-Encoding
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Sat, 06 Aug 2016 15:21:46 GMT
+  recorded_at: Sat, 06 Aug 2016 15:21:57 GMT
 recorded_with: VCR 2.9.3

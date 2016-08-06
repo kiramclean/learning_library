@@ -49,8 +49,7 @@ class ResourcesController < ApplicationController
   end
 
   def fetch_preview
-    previewer = PreviewGenerationJob.call(link: @resource.link)
-    @resource.update_attributes preview: previewer.object # do this in a background job
+    PreviewGenerationJob.perform_later(resource: @resource)
   end
 
   def successful_create

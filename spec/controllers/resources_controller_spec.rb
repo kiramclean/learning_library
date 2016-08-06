@@ -24,6 +24,8 @@ RSpec.describe ResourcesController, type: :controller do
  describe 'POST #create' do
     subject { post :create, params: { resource: resource_params } }
 
+    before { allow(PreviewGenerationJob).to receive(:perform_later) }
+
     context 'with valid params' do
       let(:resource_params) { attributes_for :resource }
 
@@ -45,6 +47,11 @@ RSpec.describe ResourcesController, type: :controller do
         expect(Resource.count).to eq 0
         subject
         expect(Resource.last.user_id).to eq nil
+      end
+
+      it 'calls the preview generation job' do
+        subject
+        expect(PreviewGenerationJob).to have_received(:perform_later).with(resource: Resource.last)
       end
 
       context 'a user is logged in' do

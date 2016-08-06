@@ -5,14 +5,15 @@ class PreviewGenerationService
   def call(link:)
     @link = link
 
-    begin
-      preview = fetch_thumbnail
-      json    = make_valid(preview.to_json)
+    @preview = begin
+                 fetch_thumbnail
+               rescue LinkThumbnailer::Exceptions => e
+                 no_preview
+               end
 
-      ServiceResponse.new(json)
-    # rescue LinkThumbnailer::Exceptions => e
-    #   ServiceResponse.new(@link, true, e.message)
-    end
+    json = make_valid(@preview.to_json)
+
+    ServiceResponse.new(json)
   end
 
   private
@@ -23,5 +24,19 @@ class PreviewGenerationService
 
   def make_valid(string)
     JSON.parse(string)
+  end
+
+  def no_preview
+    PreviewNotAvailable.new(link: @link)
+  end
+end
+
+class PreviewNotAvailable
+  def initialize(link:)
+    @link = link
+  end
+
+  def to_json
+    "{\"url\":\"#{@link}\",\"description\":\"#{I18n.t('resources.preview.fetch_error')}\"}"
   end
 end

@@ -5,7 +5,6 @@ require File.expand_path('../../config/environment', __FILE__)
 abort('DATABASE_URL environment variable is set') if ENV['DATABASE_URL']
 
 require 'spec_helper'
-require 'clearance/rspec'
 require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
@@ -16,6 +15,9 @@ module Features
 end
 
 RSpec.configure do |config|
+  config.reset
+  config.output_stream = $stdout
+
   config.include Features, type: :feature
   config.include ActiveJob::TestHelper, type: :job
   config.infer_base_class_for_anonymous_controllers = false
