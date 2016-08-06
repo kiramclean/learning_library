@@ -10,8 +10,9 @@ class PreviewGenerationService
       json    = make_valid(preview.to_json)
 
       ServiceResponse.new(json)
-    rescue LinkThumbnailer::Exceptions =>
-      ServiceResponse.new(nil, true,
+    # rescue LinkThumbnailer::Exceptions => e
+    #   ServiceResponse.new(@link, true, e.message)
+    end
   end
 
   private
