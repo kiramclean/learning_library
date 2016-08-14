@@ -45,7 +45,7 @@ class ResourcesController < ApplicationController
   end
 
   def resource_params
-    params.require(:resource).permit(:link, :cost_list, :level_list, :skill_list)
+    params.require(:resource).permit(:title, :description, :image_url, :link, :cost, :level, :tag_list)
   end
 
   def fetch_preview

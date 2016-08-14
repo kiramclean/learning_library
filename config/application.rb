@@ -16,5 +16,6 @@ module LearningLibrary
     end
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_job.queue_adapter = :sidekiq
+    ActsAsTaggableOn.force_lowercase = true
   end
 end

@@ -10,17 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805031149) do
+ActiveRecord::Schema.define(version: 20160814190106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "resources", force: :cascade do |t|
-    t.string   "link",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "link",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
-    t.json     "preview"
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_url"
+    t.integer  "cost"
+    t.string   "level"
     t.index ["user_id"], name: "index_resources_on_user_id", using: :btree
   end
 

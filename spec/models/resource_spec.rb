@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe Resource, type: :model do
   subject { build :resource }
 
-  it { is_expected.to respond_to :link, :cost_list, :level_list, :skill_list, :preview }
+  it { is_expected.to respond_to :title, :description, :link, :image_url, :cost, :level, :tag_list }
 
   it { is_expected.to validate_presence_of   :link }
   it { is_expected.to validate_uniqueness_of :link }
@@ -18,31 +18,13 @@ RSpec.describe Resource, type: :model do
   end
 
   describe 'tagging' do
-    it 'is taggable on cost' do
+    it 'is taggable' do
       resource = create :resource
 
-      resource.cost_list.add('free')
+      resource.tag_list.add('ruby, rails, backend', parse: true)
       resource.save
 
-      expect(resource.cost_list).to match_array ['free']
-    end
-
-    it 'is taggable on level' do
-      resource = create :resource
-
-      resource.level_list.add('I know nothing')
-      resource.save
-
-      expect(resource.level_list).to match_array ['I know nothing']
-    end
-
-    it 'is taggable on skill' do
-      resource = create :resource
-
-      resource.skill_list.add('ruby, rails, backend', parse: true)
-      resource.save
-
-      expect(resource.skill_list).to match_array %w(ruby rails backend)
+      expect(resource.tag_list).to match_array %w(ruby rails backend)
     end
   end
 end

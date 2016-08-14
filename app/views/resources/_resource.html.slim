@@ -1,11 +1,13 @@
 .resource
-  - if resource.preview.present?
-    .info
-      h2 = resource.preview['title']
-      a href="#{resource.preview['url']}" target='_blank' #{resource.preview['url']}
-      h3 = resource.preview['description']
+  .info
+    h2 = resource.title
+    a href="#{resource.link}" target='_blank' #{resource.link}
+    h3 = resource.description
 
-    img src="#{image_source_for(resource)}"
+    ul
+      li.money = resource.cost
+      li.level = resource.level
+      - resource.tag_list.each do |tag|
+        li.tag = tag
 
-  - else
-    = resource.link
+  img src="#{resource.image_url}" alt="#{resource.title}"

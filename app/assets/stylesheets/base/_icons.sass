@@ -2,3 +2,26 @@
   content: '\f19d'
   font-family: 'FontAwesome'
 
+=tag
+  content: '\f02b'
+  font-family: 'FontAwesome'
+
+=level
+  content: '\f148'
+  font-family: 'FontAwesome'
+
+=money
+  content: '\f155'
+  font-family: 'FontAwesome'
+
+.tag
+  &::before
+    +tag
+
+.money
+  &::before
+    +money
+
+.level
+  &::before
+    +level

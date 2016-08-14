@@ -33,6 +33,7 @@ gem 'acts-as-taggable-on'
 
 # Links
 gem 'link_thumbnailer'
+gem 'httparty'
 
 # Validations
 gem 'validate_url'
@@ -54,6 +55,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'psych', require: false # for faker
 end
 
 group :development, :staging do

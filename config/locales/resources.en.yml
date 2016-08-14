@@ -7,10 +7,8 @@ en:
     form:
       add_tags: Help others find this resource by adding some tags
       create: Create resource
-      cost_list: Cost
-      level_list: Level
       link: Link
-      skill_list: Skills covered
+      tag_list: Tags
     create:
       success:
         guest: Thanks for posting! Sign up to keep track of the resources you post and maintain lists of favourites.

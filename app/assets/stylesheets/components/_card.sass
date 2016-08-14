@@ -11,7 +11,29 @@
     font-size: inherit
     font-weight: $bold-font-weight
 
-  h3
+  h3, h4, h5, h6, p, ul
     font-size: $small-text
     font-weight: normal
+
+  ul
+    display: flex
+    flex-wrap: wrap
+
+  li
+    +border($color: $main-color)
+    border-radius: $round-border-radius
+    color: $main-color
+    display: inline
+    list-style: non
+    padding: 0 $little-space
+    margin-top: $med-space
+    white-space: nowrap
+
+    &:not(last-child)
+      margin-right: $little-space
+
+    &::before
+      padding-right: $little-space
+
+
 
