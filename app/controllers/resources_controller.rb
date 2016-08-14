@@ -3,7 +3,13 @@ class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all.order(created_at: :desc)
+    if params[:tags].present?
+      @resources = Resource.tagged_with([params[:tags]], any: true).order(created_at: :desc).paginate(page: params[:page])
+    else
+      @resources = Resource.all.includes(:taggings).order(created_at: :desc).paginate(page: params[:page])
+    end
+    @resources = @resources.where(level: params[:level]) if params[:level].present?
+    @resources = @resources.where('cost <= ?', params[:cost]) if params[:cost].present?
   end
 
   def show

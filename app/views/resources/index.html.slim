@@ -1,3 +1,21 @@
 h1 = t('.learn')
 
+.filter
+  = form_tag resources_path, method: :get do
+    .field
+      = label_tag :level
+      = select_tag(:level, options_for_select(['beginner', 'intermediate', 'advanced']), { include_blank: true })
+
+    .field
+      = label_tag t('.cost')
+      = number_field_tag :cost
+
+    .field
+      = label_tag :tags
+      = text_field_tag :tags
+
+    = submit_tag 'Search', name: nil
+
 = render @resources
+
+= will_paginate @resources

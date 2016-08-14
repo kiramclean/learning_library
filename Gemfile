@@ -34,6 +34,7 @@ gem 'acts-as-taggable-on'
 # Links
 gem 'link_thumbnailer'
 gem 'httparty'
+gem 'will_paginate'
 
 # Validations
 gem 'validate_url'

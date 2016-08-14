@@ -3,6 +3,7 @@ en:
     preview:
       fetch_error: Fetching the data for this resource threw an error. Can you add a descriptive title and brief description?
     index:
+      cost: Cost (up to)
       learn: What will you learn today?
     form:
       add_tags: Help others find this resource by adding some tags

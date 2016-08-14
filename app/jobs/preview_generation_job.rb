@@ -5,7 +5,8 @@ class PreviewGenerationJob < ApplicationJob
     @resource = resource
 
     preview = fetch_thumbnail
-    assign_json_to_resource(preview)
+    # TODO: Update resource with scraped data from the thumbnail, in the service
+    # assign_json_to_resource(preview)
   end
 
   private
