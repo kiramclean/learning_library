@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  root to: 'resources#index'
+  root 'resources#index'
   resources :resources
 
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
