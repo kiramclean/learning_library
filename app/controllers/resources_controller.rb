@@ -24,7 +24,7 @@ class ResourcesController < ApplicationController
     @resource = new_resource
 
     if @resource.save
-      fetch_preview
+      # fetch_preview
       redirect_to resources_path, notice: successful_create
     else
       render :new
